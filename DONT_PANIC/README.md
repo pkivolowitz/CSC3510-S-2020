@@ -1,4 +1,4 @@
-# Do Not Be Afraid
+# Don't Panic
 
 For those worrying about CSC 2510 next term, assembly language is much easier to master if you let go of your expectations.
 

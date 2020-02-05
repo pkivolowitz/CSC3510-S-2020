@@ -2,7 +2,7 @@
 
 The syllabus is located [here](./SYLLABUS.md).
 
-Installation of the VM is described more or less comppletely [here](./INSTALLATION.md).
+Installation of the VM is described more or less completely [here](./INSTALLATION.md).
 
 I have come to the conclusion that this course (in so far as assembly language is concerned) is actually not that hard at all. What makes it hard is YOU and your potential to be unable to put aside all the whizzy new fangled contrivances you have become accustomed to. Allow yourself to open up to the reality and you already know 98 percent of what you need to know to master assembly language - just that all the crap on top has been boiled away.
 

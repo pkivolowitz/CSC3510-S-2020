@@ -16,6 +16,10 @@ This guide is derived from [here](https://translatedcode.wordpress.com/2017/07/2
 This assumes you already have ```brew```. If you don't you will need to install that first.
 
 ```text
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+```text
 brew install qemu
 ```
 

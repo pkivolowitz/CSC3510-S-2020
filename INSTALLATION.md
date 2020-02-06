@@ -133,8 +133,9 @@ This means you may have to enable the Windows Subsystem for Linux in the old Add
 6. Scroll down to `Windows Subsystem for Linux`.
 7. Ensure this is checked. If it is not, checking it will enbable WSL.
 8. Hit OK and close settings related windows.
+9. Restart Windows. Windows will update and restart.
 
-There is a tiny change your computer BIOS will need a tickle to enable Virtualization Technology. You won't find out until much later. Microsoft is Wonderful.
+There is a tiny chance your computer BIOS will need a tickle to enable Virtualization Technology. You won't find out until much later. Microsoft is Wonderful.
 
 ### Install Ubuntu on Windows
 
@@ -142,24 +143,32 @@ WSL is (for now) a command-line only honest-to-goodness Linux system with some s
 
 1. Press the windows key &#8862;
 2. Microsoft Store
-3. Ubuntu
-4. Choose the right one.
-5. Download it.
+3. Search `Ubuntu`
+4. Choose the right one: `Ubuntu 18.04 LTS`
+5. Download it. It is about 221 MB.
 6. Install it.
-7. Run it.
-8. Make a trivial user name and password. Don't make this complicated - something easy.
+7. "Launch"
+8. Wait.
+9. Make a trivial user name and password. Don't make this complicated - something easy. I used user name `a` with password `a`. Entering a password on the command line does not echo. This is normal.
+
 
 ### Install QEMU
 
 1. `sudo -i`
-2. `apt update`
-3. `apt install qemu-system`
+2. Enter password.
+3. `apt update` If this is your first time, there may be hundreds of packages to update. Don't. Rather do it at home. See below.
+4. `apt install qemu-system`
+5. Enter
+6. Wait
+7. `exit` This will leave the super user shell.
 
-At home, update it.
+
+At home, update the full system.
 
 1. `sudo -i`
 2. `apt update`
 3. `apt upgrade`
+4. `exit`
 
 ### Adding a QEMU alias
 
@@ -168,10 +177,12 @@ Edit the file that your terminal runs at launch. This will be `~/.profile`.
 Add this line to the bottom of the file.
 
 ```text
-alias ARM='qemu-system-aarch64 -M virt -m 2048 -cpu cortex-a53 -kernel vmlinuz-4.9.0-8-arm64 -initrd initrd.img-4.9.0-8-arm64 -append root=/dev/vda2 -drive if=none,file=hda.qcow2,format=qcow2,id=hd   -device virtio-blk-pci,drive=hd  -netdev user,id=mynet,hostfwd=tcp::2222-:22 -device virtio-net-pci,netdev=mynet -nographic -smp 2'
+alias ARM='qemu-system-aarch64 -M virt -m 2048 -cpu cortex-a53 -kernel vmlinuz-4.9.0-8-arm64 -initrd initrd.img-4.9.0-8-arm64 -append root=/dev/vda2 -drive if=none,file=hda.qcow2,format=qcow2,id=hd -device virtio-blk-pci,drive=hd  -netdev user,id=mynet,hostfwd=tcp::2222-:22 -device virtio-net-pci,netdev=mynet -nographic -smp 2'
 ```
 
 Save the file and exit.
+
+You will probably use `vi` for this. Seek my help if unsure how to use `vi`.
 
 ### Ensure the alias works (repeat)
 
@@ -189,7 +200,7 @@ You should get this plus some other text potentially:
 
 ```text
 [Donnager] /tmp/aarch64 $ alias
-ARM='qemu-system-aarch64 -M virt -m 2048 -cpu cortex-a53   -kernel vmlinuz-4.9.0-8-arm64 -initrd initrd.img-4.9.0-8-arm64   -append root=/dev/vda2 -drive if=none,file=hda.qcow2,format=qcow2,id=hd   -device virtio-blk-pci,drive=hd  -netdev user,id=mynet,hostfwd=tcp::2222-:22   -device virtio-net-pci,netdev=mynet -nographic -smp 2'
+ARM='qemu-system-aarch64 -M virt -m 2048 -cpu cortex-a53 -kernel vmlinuz-4.9.0-8-arm64 -initrd initrd.img-4.9.0-8-arm64   -append root=/dev/vda2 -drive if=none,file=hda.qcow2,format=qcow2,id=hd -device virtio-blk-pci,drive=hd  -netdev user,id=mynet,hostfwd=tcp::2222-:22 -device virtio-net-pci,netdev=mynet -nographic -smp 2'
 ```
 
 ### Get the distro
@@ -218,6 +229,8 @@ Run:
 ```text
 ARM
 ```
+
+If Windows asks, `Allow Access`.
 
 Exit the distro by entering `root` as the user and `a` as the password. When the shell prompt is shown, type `shutdown now`. Always do this to exit the distro.
 

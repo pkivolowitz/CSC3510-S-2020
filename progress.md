@@ -24,5 +24,15 @@ We installed software. Everyone is expected to be able to run the ARM VM.
 
 ## February 13
 
-* We learned all variable access requires pointers
-* Nothing happens to variables unless they are in registers
+We had a very productive day today. We:
+
+* started with a C implementation of fizzbuzz and broke it down into C that is essentially assembly language.
+* began coding the assembly language version
+    * we learned what segments are
+    * we learned we have at least two segments, text and data. Your code goes in the text segment and your global variables go in data
+    * different register groups have differing requirements. For example x0 through x7 are scratch registers.
+    * x29 and x30 must be preserved on the stack then restored for every function you write
+    * ldp and stp are used to load and store two registers at a time into an address contained in a register (sp)
+    * order going on the stack must be reversed by the order coming off the stack
+    * the C runtime library is just "there"
+    

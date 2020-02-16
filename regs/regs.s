@@ -1,10 +1,27 @@
 		.text
 		.global		main
 
-/*	InitRegs()
+/*	This program intends to show:
+	* how some registers cannot be counted upon to keep their values after a function call.
+	* a triggering of valgrind
+	* an opportunity to fix the triggering of valgrind
 
-	Sets all registers to their register number except X30 
-	which is being used as the link register.
+	But first, there is a bug to find before the program will run correctly.
+
+	Another teachable is the replacement with "ldr	xn, =symbol" with "adr	xn, symbol".
+	These instructions demonstrate how every ARM instruction can be 4 bytes long and STILL
+	be able to access via "pointer".
+
+	If you have not already done so in your ARM VM:
+	su
+	enter password
+	apt install valgrind
+	return
+	exit
+*/
+
+/*	InitRegs()
+	Sets all registers to their register number except X29 and X30.
 */
 
 InitRegs:
@@ -40,39 +57,27 @@ InitRegs:
 		mov		x28, 28
 		ldp		x29, x30, [sp], 16
 		ret
-	
-/*	main()
-
-	argc and v are not being used.
-*/
 
 main:	
-		str		x30, [sp, -16]!
-
+		stp		x29, x30, [sp, -16]!
 		bl		InitRegs
-
-		mov		x0, 16			// suggest br & inf reg
-		bl		malloc
-
-		str		x0, [sp, -16]!	// suggest inf reg
+		mov		x0, 16			// suggest inf reg
+		bl		malloc			// suggest inf reg
+		ldr		x1, =index
+		str		x0, [x1]
+		str		x0, [sp, -16]!
 		bl		InitRegs
-		ldr		x0, [sp], 16
-
-		mov		x1, x0
+		ldr		x1, [sp], 16
 		ldr		x0, =s
 		bl		printf
-		ldr		x30, [sp], 16
+		ldp		x29, x30, [sp], 16
+		mov		x0, xzr
 		ret
 
 		.data
 
+index:	.space		4
 s:		.asciz		"This is an address 0x%lx\n"
-
-/*	NOTES
-
-printf preserved x18 through x29
-
-*/
 		.end
 
 

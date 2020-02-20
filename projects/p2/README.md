@@ -80,4 +80,4 @@ You may partner with one person. One of you will submit the source code. The oth
 
 ## Due date
 
-Assigned on the 20th of February - due on Tuesday March 3th.
+Assigned on the 20th of February - due on Tuesday March third.

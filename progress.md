@@ -35,4 +35,34 @@ We had a very productive day today. We:
     * ldp and stp are used to load and store two registers at a time into an address contained in a register (sp)
     * order going on the stack must be reversed by the order coming off the stack
     * the C runtime library is just "there"
-    
+
+## February 18
+
+Either this day or the next we did a deep dive into caches.
+
+## February 20
+
+## February 25
+
+I have not recorded our progress for a bit. I apologize.
+
+Today we:
+
+* went over P3
+* answered questions abotu P2
+
+Today we learned about:
+
+* rotational and seek latency
+* thrashing
+* the concept of file systems as being software that determined where to place data on disk
+* sequential access to a spinning disk can actually be faster than accessing an SSD particularly for writing
+
+Then, we took apart 2 3 TB drives. One we left largely intact. The other was stripped down to its constituent parts.
+
+## February 27
+
+We will review.
+
+Today we expect to learn about how integers and floats work. Then, will learn about the floating point unit on AARCH64.
+

@@ -29,6 +29,8 @@ void Foo(int max)
 }
 
 int main() {
+	cout << std::numeric_limits<float>::min() << " " << std::numeric_limits<float>::max() << endl;
+	cout << std::numeric_limits<double>::min() << " " << std::numeric_limits<double>::max() << endl;
 	cout << "float epsilon = " << numeric_limits<float>::epsilon() << ":" << endl;
 	Foo<float, uint32_t>(150);
 	cout << "double epsilon = " << numeric_limits<double>::epsilon() << ":" << endl;

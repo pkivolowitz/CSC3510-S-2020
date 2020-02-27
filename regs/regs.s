@@ -1,4 +1,5 @@
 		.text
+		.align		2
 		.global		main
 
 /*	This program intends to show:
@@ -76,7 +77,7 @@ main:
 
 		.data
 
-index:	.space		4
+index:	.space		8
 s:		.asciz		"This is an address 0x%lx\n"
 		.end
 

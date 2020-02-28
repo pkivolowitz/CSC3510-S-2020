@@ -62,7 +62,21 @@ Then, we took apart 2 3 TB drives. One we left largely intact. The other was str
 
 ## February 27
 
-We will review.
+We reviewed.
 
-Today we expect to learn about how integers and floats work. Then, will learn about the floating point unit on AARCH64.
+We learned:
 
+* Unsigned integers are straight forward
+* Signed numbers are more complex than meets the eye
+  * They use two's complement
+    * Flip all the bits
+	* Add 1
+  * Two's complement makes +, - and * easy
+  * Subtraction is implemented by changing the sign and adding
+* Floating point numbers are divided into three groups
+  * A sign bit for the whole number
+  * An exponent in base 2
+  * A mantissa
+* There is more to talk about with respect to the exponent
+
+We did not get to talk about AARCH64 floating point support.

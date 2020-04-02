@@ -232,7 +232,7 @@ where you write `MEMCPY()`.
 You'll note that `MEMCPY()` was forward declared with:
 
 ```c++
-extern "C" void MEMCPY(u_int8_t *, u_int8_t *, int);
+extern "C" void MEMCPY(u_int8_t *, u_int8_t *, u_int64_t);
 ```
 
 This is the calling convention your assembly language implementation must operate with. Explicitly:

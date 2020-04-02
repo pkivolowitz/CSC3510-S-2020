@@ -241,7 +241,7 @@ This is the calling convention your assembly language implementation must operat
 | --- | -------- |
 | x0 | Pointer to destination |
 | x1 | Pointer to source |
-| w2 | Length of copy |
+| x2 | Length of copy |
 
 ### Assumptions / Constraints
 

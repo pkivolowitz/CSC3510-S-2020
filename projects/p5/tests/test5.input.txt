@@ -1,0 +1,6 @@
+# Tests slaballoc, slabfree, probe
+probe,7ec
+slaballoc
+probe,7ec
+slabfree,7ec
+probe,7ec

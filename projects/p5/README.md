@@ -196,6 +196,8 @@ The uint32_t at address 0xFFFFFFFFFF cannot be accessed because it is beyond the
 
 Remember that the address specified is zero-based.
 
+Use this for testing purposes.
+
 ### write
 
 The "write" command sets the ```uint32_t``` at the address (specified in hex and zero-based) to the given value (specified in hex).
@@ -223,6 +225,8 @@ Error: missing value
 write,fffffff,0
 Error: address outside heap
 ```
+
+Use this command for testing. For example, you can overwrite a MallocHeader to see if your free code handles it properly.
 
 ### slaballoc
 
@@ -336,6 +340,22 @@ free,c
 Free delinked unallocated slab
 Free replace head_ptr with: 0x00000000 with size: 288
 ```
+
+If what otherwise appears to be a valid slab has a bad MallocHeader, print an error and leave it alone. Example:
+
+```text
+slaballoc
+Allocated a slab at: 0x000007ec
+write,7e8,ff
+Address: 0x000007e8 set to (uint32_t): 0xff
+slabfree,7ec
+Error: memory at 0x000007ec is corrupt or not a MallocHeader
+write,7e8,ccc0
+Address: 0x000007e8 set to (uint32_t): 0xccc0
+slabfree,7ec
+Reclaimed slab at: 0x000007ec
+```
+
 
 ### malloc
 

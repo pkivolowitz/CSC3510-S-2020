@@ -1,0 +1,46 @@
+Mode: ff
+Heap (KB): 64
+Slab Size (B): 256
+Slabs Alloced At One Time: 8
+Heap initialized with: 65536 bytes
+Malloc dividing: 65536 at: 0x00000000 into: 288 and: 65248
+Malloc returning: 0x0000000c
+Malloc dividing: 65248 at: 0x00000120 into: 288 and: 64960
+Malloc returning: 0x0000012c
+Malloc dividing: 64960 at: 0x00000240 into: 288 and: 64672
+Malloc returning: 0x0000024c
+Malloc dividing: 64672 at: 0x00000360 into: 288 and: 64384
+Malloc returning: 0x0000036c
+Malloc dividing: 64384 at: 0x00000480 into: 288 and: 64096
+Malloc returning: 0x0000048c
+Malloc dividing: 64096 at: 0x000005a0 into: 288 and: 63808
+Malloc returning: 0x000005ac
+Malloc dividing: 63808 at: 0x000006c0 into: 288 and: 63520
+Malloc returning: 0x000006cc
+Malloc dividing: 63520 at: 0x000007e0 into: 288 and: 63232
+Malloc returning: 0x000007ec
+Free slabs:
+0x0000000c+, 0x0000012c+, 0x0000024c+, 0x0000036c+, 0x0000048c+, 0x000005ac+, 0x000006cc+, 0x000007ec+
+Free memory:
+0x00000900 (63232)(nullptr)+
+There are: 1 free blocks.
+Largest free block: 63232
+Smallest free block: 63232
+Entering main loop:
+Allocated a slab at: 0x000007ec
+Free slabs:
+0x0000000c+, 0x0000012c+, 0x0000024c+, 0x0000036c+, 0x0000048c+, 0x000005ac+, 0x000006cc+
+Free memory:
+0x00000900 (63232)(nullptr)+
+There are: 1 free blocks.
+Largest free block: 63232
+Smallest free block: 63232
+Free replace head_ptr with: 0x000007e0 with size: 288
+Coallescing: 0x000007e0 size: 288 into: 0x00000900 size: 63232 making size: 63520
+Free slabs:
+0x0000000c+, 0x0000012c+, 0x0000024c+, 0x0000036c+, 0x0000048c+, 0x000005ac+, 0x000006cc+
+Free memory:
+0x000007e0 (63520)(nullptr)+
+There are: 1 free blocks.
+Largest free block: 63520
+Smallest free block: 63520

@@ -1,0 +1,5 @@
+# Tests one slabmalloc and slabfree
+slaballoc
+freelist
+slabfree,7ec
+freelist

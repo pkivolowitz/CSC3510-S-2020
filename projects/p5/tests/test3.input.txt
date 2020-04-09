@@ -1,0 +1,5 @@
+# Tests one slaballoc which is freed by free instead of slabfree
+slaballoc
+freelist
+free,7ec
+freelist

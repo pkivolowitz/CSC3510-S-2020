@@ -1,0 +1,9 @@
+# Tests coallescing forward and then double
+slaballoc
+slaballoc
+slaballoc
+free,5ac
+free,6cc
+freelist
+free,7ec
+freelist

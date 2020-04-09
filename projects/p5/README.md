@@ -1,4 +1,4 @@
-# Userland Memory Management
+# Userland Memory Management (COMP ORG VERSION)
 
 ## Partner rules
 

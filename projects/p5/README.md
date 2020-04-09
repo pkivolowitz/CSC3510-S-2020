@@ -2,7 +2,7 @@
 
 ## Partner rules
 
-You may use a partner.
+Solo work.
 
 ## Overview
 

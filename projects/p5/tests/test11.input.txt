@@ -1,0 +1,17 @@
+# Tests exhausting memory
+malloc,1772
+malloc,25580
+malloc,25580
+malloc,10220
+freelist
+malloc,1000
+slaballoc
+slaballoc
+slaballoc
+slaballoc
+slaballoc
+slaballoc
+slaballoc
+slaballoc
+freelist
+slaballoc

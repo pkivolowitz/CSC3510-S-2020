@@ -188,7 +188,7 @@ Error: address outside heap
 
 The uint32_t at address 0 contains the magic number because it is the first magic number in the ```MallocHeader``` in front of the first slab.
 
-The uint32_t at address 4 contains 0x120 because it is the first magic number in the ```MallocHeader``` in front of the first slab.
+The uint32_t at address 4 contains 0x120 because 288 bytes is the size of the first slab.
 
 The uint32_t at address 8 contains the magic number because it is the second magic number in the ```FreeListNode``` in front of the first slab.
 

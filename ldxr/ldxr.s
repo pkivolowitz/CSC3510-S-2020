@@ -1,3 +1,5 @@
+THIS IS ALL WRONG. DO NOT USE.
+
 		.text
 		.align 2
 		.global main
@@ -24,13 +26,13 @@ main:	stp		x29, x30, [sp, -16]!
 */
 		ldr		x0, =fmt2
 		ldr		x1, =lk
-		ldxr	w2, [x1]
+		ldaxr	w2, [x1]
 		bl		printf
 
 		ldr		x0, =fmt3
 		ldr		x1, =lk
 		mov		w2, 9
-		stxr	w2, w2, [x1]
+		stlxr	w2, w2, [x1]
 		bl		printf
 
 /*	This will demonstrate what FAILING to get the lock looks
@@ -52,19 +54,21 @@ main:	stp		x29, x30, [sp, -16]!
 */
 		ldr		x0, =fmt4
 		ldr		x1, =lk
-		ldxr	w2, [x1]
+		ldaxr	w2, [x1]
 		bl		printf
 
-		// Second attempt to get the lock.
+		// Second and third attempt to get the lock.
 		ldr		x1, =lk
-		ldxr	w2, [x1]
+		ldaxr	w2, [x1]
+		ldr		x1, =lk
+		ldaxr	w2, [x1]
 
 		// This should print 0 - telling the executive thread
 		// it did NOT get the lock.
 		ldr		x0, =fmt5
 		ldr		x1, =lk
 		mov		w2, 9
-		stxr	w2, w2, [x1]
+		stlxr	w2, w2, [x1]
 		bl		printf
 
 		// This should print 1 - because it is an `stxr` that
@@ -73,7 +77,7 @@ main:	stp		x29, x30, [sp, -16]!
 		ldr		x0, =fmt6
 		ldr		x1, =lk
 		mov		w2, 11
-		stxr	w2, w2, [x1]
+		stlxr	w2, w2, [x1]
 		bl		printf
 
 /*	Finally, what is in `lk`. Is it 7 or 9 or 11?

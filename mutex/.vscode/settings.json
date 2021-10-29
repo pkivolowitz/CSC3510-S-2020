@@ -1,0 +1,12 @@
+{
+	"files.exclude": {
+		"**/blabby1": true,
+		"**/blabby2": true,
+		"**/blabby3": true,
+		"**/counter1": true,
+		"**/counter2": true,
+		"**/counter3": true,
+		"**/counter4": true,
+		"**/counter5": true
+	}
+}

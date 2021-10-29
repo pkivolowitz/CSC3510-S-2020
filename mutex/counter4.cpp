@@ -29,12 +29,15 @@ int main(int argc, char * argv[]) {
 		}
 	}
 
+	cout << "ROLL UP:\n";
 	cout << "Thread count:   " << thread::hardware_concurrency() << endl;
 	cout << "Max:            " << max << endl;
 	cout << "Expected value: " << max * thread::hardware_concurrency() << endl;
 
 	vector<thread> t(thread::hardware_concurrency());
 	counters.resize(t.size());
+
+	auto start_time = chrono::steady_clock::now();
 
 	for (size_t i = 0; i < t.size(); i++)
 		t.at(i) = thread(Worker, max, i);
@@ -47,6 +50,12 @@ int main(int argc, char * argv[]) {
 	}
 
 	cout << "Actual value:   " << sum << endl;
-	
+
+	auto end_time = chrono::steady_clock::now();
+
+	cout << "Elapsed time in milliseconds: "
+		 << chrono::duration_cast<chrono::microseconds>(end_time - start_time).count()
+		 << " µs" << endl;
+
 	return 0;
 }

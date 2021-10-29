@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <getopt.h>
 #include <iomanip>
+#include <chrono>
 
 using namespace std;
 
@@ -30,11 +31,14 @@ int main(int argc, char * argv[]) {
 		}
 	}
 
+	cout << "ATOMIC:\n";
 	cout << "Thread count:   " << thread::hardware_concurrency() << endl;
 	cout << "Max:            " << max << endl;
 	cout << "Expected value: " << max * thread::hardware_concurrency() << endl;
 
 	vector<thread> t(thread::hardware_concurrency());
+
+	auto start_time = chrono::steady_clock::now();
 
 	for (size_t i = 0; i < t.size(); i++)
 		t.at(i) = thread(Worker, max);
@@ -43,6 +47,12 @@ int main(int argc, char * argv[]) {
 		it.join();
 
 	cout << "Actual value:   " << counter << endl;
-	
+
+	auto end_time = chrono::steady_clock::now();
+
+	cout << "Elapsed time in milliseconds: "
+		 << chrono::duration_cast<chrono::microseconds>(end_time - start_time).count()
+		 << " µs" << endl;
+
 	return 0;
 }
